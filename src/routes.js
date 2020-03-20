@@ -1,11 +1,13 @@
 import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import DashboardRoutes from './routes/dashboard.routes';
 import Icon from 'react-native-vector-icons/Entypo';
+
+import DashboardRoutes from './routes/dashboard.routes';
+import Message from './pages/Message';
 
 const Stack = createStackNavigator();
 
-function Routes() {
+function Routes({navigation}) {
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -25,10 +27,9 @@ function Routes() {
           headerRight: () => (
             <Icon.Button
               name="chat"
-              onPress={() => alert('teste')}
-              title="teste"
               color="#fff"
               backgroundColor="#7159c1"
+              onPress={() => navigation.navigate(Message)}
             />
           ),
         }}
